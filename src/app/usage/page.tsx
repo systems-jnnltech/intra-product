@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function UsagePage() {
   return (
-    <div className="bg-gray-50 min-h-screen py-20">
+    <div className="bg-transparent min-h-screen py-20">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-(--color-forest-green) mb-4">How to Use</h1>

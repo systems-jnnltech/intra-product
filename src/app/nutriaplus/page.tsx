@@ -14,10 +14,10 @@ export default function NutriaPlusPage() {
         title="NutriaPlus"
         imageSrc="/products/nutriaplus/nutriaplus.png"
         colorClass="text-(--color-nutria)"
-        bgColorClass="bg-white"
+        bgColorClass="bg-transparent"
         description={
-          <>
-            <p className="mb-4">
+          <div className="space-y-4 max-w-[500px]">
+            <p>
               NutriaPlus is a powerful antioxidant supplement formulated with fruit and vegetable concentrates, 
               plant extracts, vitamin C and selenium to help your body defend itself against the health 
               challenges of modern life!
@@ -25,14 +25,14 @@ export default function NutriaPlusPage() {
             <p className="font-semibold text-(--color-nutria)">
               NutriaPlus is the first natural health product to be formulated using Zebrafish research!
             </p>
-          </>
+          </div>
         }
       >
-        <div className="mt-8">
+        <div className="mt-6 max-w-[500px]">
           <ProductBenefits 
             title="Proven benefits of NutriaPlus:"
             colorClass="text-(--color-nutria)"
-            icon={<CheckCircle2 className="w-8 h-8" />}
+            icon={<CheckCircle2 className="w-7 h-7" />}
             items={[
               "Reduces cell damage caused by the toxic effects of pollution and chemicals",
               "Cell Health - reduces inflammation at the cellular level",

@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-transparent min-h-screen pt-20">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-(--color-forest-green) mb-4">About Lifestyles</h1>

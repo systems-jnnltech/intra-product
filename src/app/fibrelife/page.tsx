@@ -14,21 +14,31 @@ export default function FibreLifePage() {
         title="FibreLife"
         imageSrc="/products/fibrelife/fibrelife.png"
         colorClass="text-(--color-fibre)"
-        bgColorClass="bg-white"
+        bgColorClass="bg-transparent"
         description={
-          <>
-            <p className="mb-4">
+          <div className="space-y-4 max-w-[480px]">
+            <p>
               FibreLife is a unique soluble plant fibre with the highest viscosity of any fibre tested. 
-              FibreLife absorbs water quickly and continuously.
+              FibreLife absorbs water quickly and continuously to promote healthy digestion, satiety, and glycemic balance.
             </p>
-            <p className="text-xl font-semibold text-gray-800 mt-6">
-              It&apos;s as easy as A B C
+            <p className="text-base sm:text-lg font-semibold text-gray-800">
+              Designed around three synergistic wellness pillars: <span className="text-[var(--color-fibre)]">Appetite, Blood Sugar & Cholesterol.</span>
             </p>
-          </>
+          </div>
         }
-      />
+      >
+        <div className="pt-2">
+          <a
+            href="#abc-formula"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--color-fibre)] text-white text-sm font-semibold hover:bg-orange-600 transition-all shadow-md hover:shadow-lg"
+          >
+            <span>Explore A-B-C Formula</span>
+            <span className="text-xs font-bold">↓</span>
+          </a>
+        </div>
+      </ProductSection>
 
-      <section className="py-20 bg-orange-50">
+      <section id="abc-formula" className="py-20 bg-orange-50">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid md:grid-cols-3 gap-8">
             

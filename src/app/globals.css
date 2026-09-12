@@ -13,34 +13,43 @@
   --color-cardio: #d62828;
   --color-fibre: #f77f00;
 
-  --color-background: var(--color-off-white);
+  --color-background: var(--color-warm-cream);
   --color-foreground: var(--color-charcoal);
   
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --background: var(--color-off-white);
-  --foreground: var(--color-charcoal);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #121212;
-    --foreground: #f8f9fa;
-  }
+  --background: #fbf8f1;
+  --foreground: #2b2b2b;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--color-warm-cream);
+  background-image: url('/products/website-bg.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
   color: var(--foreground);
   font-family: var(--font-sans);
+  min-height: 100vh;
+}
+
+@media (max-width: 1024px) {
+  body {
+    background-size: cover;
+    background-position: center top;
+  }
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-.botanical-pattern {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.83-43.79 43.792-8.332-8.332L46.295 0h8.332zM0 38.334l8.332 8.332L0 54.998v-16.664z' fill='%2374c69d' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+.website-bg-frame {
+  background-image: url('/products/website-bg.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
 }
+

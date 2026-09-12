@@ -15,10 +15,10 @@ export default function IntraPage() {
         tagline="Drink Intra. Share Intra. Every Day."
         imageSrc="/products/intra/intra.png"
         colorClass="text-(--color-intra)"
-        bgColorClass="bg-white"
+        bgColorClass="bg-transparent"
         description={
-          <>
-            <p className="mb-4">
+          <div className="space-y-4 max-w-[480px]">
+            <p>
               Intra is a proprietary formulation of 23 time-tested and trusted botanical extracts – which 
               provides antioxidants, vitamins, minerals, flavonoids, lignins, polysaccharides and other healthy 
               nutrients specific to each herbal ingredient.
@@ -28,9 +28,24 @@ export default function IntraPage() {
               together to help balance and strengthen the body&apos;s eight biological systems, leaving you feeling 
               healthier, happier and more energized!
             </p>
-          </>
+          </div>
         }
-      />
+      >
+        <div className="flex flex-wrap items-center gap-3 pt-2">
+          <a
+            href="#botanicals"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--color-intra)] text-white text-sm font-semibold hover:bg-[var(--color-forest-green)] transition-all shadow-md hover:shadow-lg"
+          >
+            Explore 23 Botanicals
+          </a>
+          <a
+            href="#biological-systems"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[var(--color-forest-green)] border border-[var(--color-intra)]/30 text-sm font-semibold hover:bg-emerald-50/80 transition-all shadow-xs"
+          >
+            8 Biological Systems
+          </a>
+        </div>
+      </ProductSection>
       
       <BiologicalSystems />
       <BotanicalGrid />

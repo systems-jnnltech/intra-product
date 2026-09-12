@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { ProductScrollShowcase } from "@/components/sections/ProductScrollShowcase";
 import { ProductCard } from "@/components/ui/ProductCard";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -43,19 +44,22 @@ export default function Home() {
     <div>
       <Hero />
       
-      {/* Product Collection Section */}
-      <section id="products" className="py-24 bg-white">
+      {/* Modern Scroll-Driven Product Showcase */}
+      <ProductScrollShowcase />
+
+      {/* Product Quick Collection Section */}
+      <section className="py-20 bg-gray-50/70 border-t border-gray-100">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-(--color-forest-green) mb-4">Our Wellness Collection</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover our core products designed to support your daily wellness journey.
+            <h2 className="text-3xl md:text-4xl font-bold text-(--color-forest-green) mb-4">Complete Collection at a Glance</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Compare our four core formulations and find the perfect regimen for your lifestyle.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {products.map((product) => (
-              <ProductCard key={product.name} {...product} />
+            {products.map((product, idx) => (
+              <ProductCard key={product.name} index={idx} {...product} />
             ))}
           </div>
         </div>

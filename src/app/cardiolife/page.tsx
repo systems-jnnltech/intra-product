@@ -14,28 +14,28 @@ export default function CardioLifePage() {
         title="CardioLife"
         imageSrc="/products/cardiolife/cardiolife.png"
         colorClass="text-(--color-cardio)"
-        bgColorClass="bg-white"
+        bgColorClass="bg-transparent"
         description={
-          <>
-            <p className="mb-4">
+          <div className="space-y-4 max-w-[500px]">
+            <p>
               CardioLife is a scientifically formulated dietary supplement providing vitamins, minerals and 
               plant extracts that support cardiovascular health and blood circulation throughout the body.
             </p>
-            <p className="mb-4">
+            <p>
               The combination of Vitamin K2 (MK7), hawthorn extract and vitamins B6, B12 and Folic acid 
               have shown to support the health of the arteries and ensure maximum blood flow throughout the body.
             </p>
             <p className="font-semibold text-(--color-cardio)">
               Optimal blood flow is vital to heart health, as well as brain function and overall well-being.
             </p>
-          </>
+          </div>
         }
       >
-        <div className="mt-8">
+        <div className="mt-6 max-w-[500px]">
           <ProductBenefits 
             title="Use CardioLife everyday to:"
             colorClass="text-(--color-cardio)"
-            icon={<HeartPulse className="w-8 h-8" />}
+            icon={<HeartPulse className="w-7 h-7" />}
             items={[
               "Maintain the health of the arteries and blood vessels - avoid hardening of the arteries",
               "Optimize blood flow throughout the body thereby keeping the heart and cardiovascular system strong and healthy",

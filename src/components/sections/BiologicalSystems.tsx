@@ -102,7 +102,7 @@ export function BiologicalSystems() {
   const [activeSystem, setActiveSystem] = useState<string>(systems[0].id);
 
   return (
-    <div className="py-20 bg-white">
+    <div id="biological-systems" className="py-20 bg-white/80 backdrop-blur-md border-t border-emerald-900/5">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-(--color-forest-green) mb-4">
