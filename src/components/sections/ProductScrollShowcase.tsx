@@ -1,8 +1,15 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { 
+  motion, 
+  useScroll, 
+  useTransform, 
+  useSpring, 
+  useReducedMotion 
+} from "framer-motion";
 import { ArrowRight, CheckCircle2, Sparkles, Leaf, Shield, Heart, Activity } from "lucide-react";
 
 interface ProductShowcaseItem {
@@ -148,142 +155,152 @@ const products: ProductShowcaseItem[] = [
   },
 ];
 
+function ProductRow({ product, index }: { product: ProductShowcaseItem; index: number }) {
+  const rowRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const isEven = index % 2 === 1;
+  const Icon = product.icon;
+
+  const { scrollYProgress } = useScroll({
+    target: rowRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Parallax translation and rotation
+  const rawY = useTransform(scrollYProgress, [0, 1], [-25, 25]);
+  const rawRotate = useTransform(scrollYProgress, [0, 1], isEven ? [2.5, -2.5] : [-2.5, 2.5]);
+  
+  const smoothY = useSpring(rawY, { stiffness: 120, damping: 22 });
+  const smoothRotate = useSpring(rawRotate, { stiffness: 120, damping: 22 });
+
+  return (
+    <motion.div
+      ref={rowRef}
+      initial={{ opacity: 0, y: 35 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      className={`relative rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-16 border ${product.theme.borderColor} bg-gradient-to-br ${product.theme.gradientBg} shadow-sm hover:shadow-xl transition-shadow duration-500`}
+    >
+      <div className="grid lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-16 items-center">
+        
+        {/* Bottle Image Column with Scroll Parallax */}
+        <div className={`lg:col-span-5 flex justify-center items-center relative ${isEven ? "lg:order-2" : "lg:order-1"}`}>
+          {/* Soft ambient aura circle */}
+          <div className={`absolute w-52 h-52 sm:w-80 sm:h-80 rounded-full ${product.theme.auraColor} blur-3xl -z-10`} />
+
+          {/* Parallax Floating Bottle */}
+          <motion.div
+            style={
+              shouldReduceMotion
+                ? {}
+                : {
+                    y: smoothY,
+                    rotate: smoothRotate,
+                  }
+            }
+            className="relative w-[220px] xs:w-[260px] sm:w-[300px] md:w-[320px] h-[280px] xs:h-[340px] sm:h-[440px] shrink-0 max-w-full"
+          >
+            <Image
+              src={product.imageSrc}
+              alt={product.name}
+              fill
+              sizes="(max-width: 640px) 240px, (max-width: 1024px) 300px, 320px"
+              className="object-contain filter drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+              priority={index === 0}
+            />
+          </motion.div>
+        </div>
+
+        {/* Content Column */}
+        <motion.div
+          initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className={`lg:col-span-7 ${isEven ? "lg:order-1" : "lg:order-2"}`}
+        >
+          {/* Badge */}
+          <div className="flex items-center gap-3 mb-3 sm:mb-4">
+            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${product.theme.badgeBg}`}>
+              <Icon className="w-3.5 h-3.5" />
+              {product.badge}
+            </span>
+          </div>
+
+          {/* Name & Tagline */}
+          <h3 className={`text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-2 ${product.theme.textColor}`}>
+            {product.name}
+          </h3>
+          <p className="text-sm sm:text-base lg:text-lg font-medium text-gray-700 italic mb-2 sm:mb-4">
+            &quot;{product.tagline}&quot;
+          </p>
+          <p className="text-xs sm:text-sm font-semibold text-gray-800 uppercase tracking-wide mb-3 sm:mb-4">
+            {product.subtitle}
+          </p>
+
+          {/* Main Description */}
+          <p className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed mb-6">
+            {product.description}
+          </p>
+
+          {/* Highlights Checklist */}
+          <ul className="grid sm:grid-cols-2 gap-2.5 sm:gap-3 mb-6 sm:mb-8">
+            {product.highlights.map((highlight, hIdx) => (
+              <li key={hIdx} className="flex items-start text-xs sm:text-sm text-gray-700">
+                <CheckCircle2 className={`w-4 h-4 mr-2.5 mt-0.5 shrink-0 ${product.theme.textColor}`} />
+                <span>{highlight}</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA Button */}
+          <div className="pt-2">
+            <Link
+              href={product.href}
+              className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 rounded-full font-semibold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 ${product.theme.buttonBg} ${product.theme.buttonHover}`}
+            >
+              <span>Learn More About {product.name.replace(/[^a-zA-Z]/g, "")}</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </motion.div>
+
+      </div>
+    </motion.div>
+  );
+}
+
 export function ProductScrollShowcase() {
   return (
-    <section id="products" className="py-24 bg-white/80 backdrop-blur-md relative overflow-hidden border-t border-emerald-900/5">
-      <div className="container mx-auto px-6 max-w-7xl">
+    <section id="products" className="py-14 sm:py-20 lg:py-24 bg-white/80 backdrop-blur-md relative overflow-hidden border-t border-emerald-900/5">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         
         {/* Section Intro */}
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center max-w-3xl mx-auto mb-20"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-20"
         >
-          <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-leaf-green)] bg-green-50 border border-green-200/60 mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full px-3.5 sm:px-4 py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[var(--color-leaf-green)] bg-green-50 border border-green-200/60 mb-3 sm:mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             The Core Wellness Formulations
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-[var(--color-forest-green)] tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-bold text-[var(--color-forest-green)] tracking-tight mb-3 sm:mb-4">
             Designed to Work Better Together
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
             Explore our flagship collection. Each product is engineered around natural botanical synergy to support your daily wellness journey.
           </p>
         </motion.div>
 
-        {/* Alternating Product Scroll Rows */}
-        <div className="space-y-20 lg:space-y-28">
-          {products.map((product, index) => {
-            const isEven = index % 2 === 1;
-            const Icon = product.icon;
-
-            return (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className={`relative rounded-3xl p-8 sm:p-12 lg:p-16 border ${product.theme.borderColor} bg-gradient-to-br ${product.theme.gradientBg} shadow-sm hover:shadow-xl transition-shadow duration-500`}
-              >
-                {/* Background decorative index number */}
-                <span className="absolute right-6 top-6 sm:right-10 sm:top-10 font-mono text-6xl sm:text-8xl font-black text-gray-900/[0.04] select-none pointer-events-none">
-                  {product.number}
-                </span>
-
-                <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center`}>
-                  
-                  {/* Bottle Image Column */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.92, x: isEven ? 25 : -25 }}
-                    whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.1 }}
-                    transition={{ duration: 0.75, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    className={`lg:col-span-5 flex justify-center items-center relative ${isEven ? "lg:order-2" : "lg:order-1"}`}
-                  >
-                    {/* Soft ambient aura circle */}
-                    <div className={`absolute w-64 h-64 sm:w-80 sm:h-80 rounded-full ${product.theme.auraColor} blur-3xl -z-10`} />
-
-                    {/* Continuous gentle floating bottle */}
-                    <motion.div
-                      animate={{ y: [0, -10, 0] }}
-                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                      className="relative w-[260px] sm:w-[300px] md:w-[320px] h-[340px] sm:h-[440px] shrink-0"
-                    >
-                      <Image
-                        src={product.imageSrc}
-                        alt={product.name}
-                        fill
-                        sizes="(max-width: 640px) 260px, (max-width: 1024px) 300px, 320px"
-                        className="object-contain filter drop-shadow-2xl hover:scale-105 transition-transform duration-500"
-                        priority={index === 0}
-                      />
-                    </motion.div>
-                  </motion.div>
-
-                  {/* Content Column */}
-                  <motion.div
-                    initial={{ opacity: 0, x: isEven ? -40 : 40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                    className={`lg:col-span-7 ${isEven ? "lg:order-1" : "lg:order-2"}`}
-                  >
-                    {/* Badge */}
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${product.theme.badgeBg}`}>
-                        <Icon className="w-3.5 h-3.5" />
-                        {product.badge}
-                      </span>
-                      <span className="text-xs font-mono text-gray-500 font-semibold tracking-wider uppercase">
-                        Product #{product.number}
-                      </span>
-                    </div>
-
-                    {/* Name & Tagline */}
-                    <h3 className={`text-3xl sm:text-5xl font-extrabold tracking-tight mb-2 ${product.theme.textColor}`}>
-                      {product.name}
-                    </h3>
-                    <p className="text-base sm:text-lg font-medium text-gray-700 italic mb-4">
-                      &quot;{product.tagline}&quot;
-                    </p>
-                    <p className="text-sm font-semibold text-gray-800 uppercase tracking-wide mb-4">
-                      {product.subtitle}
-                    </p>
-
-                    {/* Main Description */}
-                    <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6">
-                      {product.description}
-                    </p>
-
-                    {/* Highlights Checklist */}
-                    <ul className="grid sm:grid-cols-2 gap-3 mb-8">
-                      {product.highlights.map((highlight, hIdx) => (
-                        <li key={hIdx} className="flex items-start text-sm text-gray-700">
-                          <CheckCircle2 className={`w-4 h-4 mr-2.5 mt-0.5 shrink-0 ${product.theme.textColor}`} />
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* CTA Button */}
-                    <div className="pt-2">
-                      <Link
-                        href={product.href}
-                        className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 ${product.theme.buttonBg} ${product.theme.buttonHover}`}
-                      >
-                        Learn More About {product.name.replace(/[^a-zA-Z]/g, "")}
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                      </Link>
-                    </div>
-                  </motion.div>
-
-                </div>
-              </motion.div>
-            );
-          })}
+        {/* Alternating Product Scroll Rows with Parallax */}
+        <div className="space-y-10 sm:space-y-16 lg:space-y-28">
+          {products.map((product, index) => (
+            <ProductRow key={product.id} product={product} index={index} />
+          ))}
         </div>
 
       </div>

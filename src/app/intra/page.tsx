@@ -31,16 +31,16 @@ export default function IntraPage() {
           </div>
         }
       >
-        <div className="flex flex-wrap items-center gap-3 pt-2">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 w-full sm:w-auto">
           <a
             href="#botanicals"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--color-intra)] text-white text-sm font-semibold hover:bg-[var(--color-forest-green)] transition-all shadow-md hover:shadow-lg"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[var(--color-intra)] text-white text-sm font-semibold hover:bg-[var(--color-forest-green)] transition-all shadow-md hover:shadow-lg text-center"
           >
             Explore 23 Botanicals
           </a>
           <a
             href="#biological-systems"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[var(--color-forest-green)] border border-[var(--color-intra)]/30 text-sm font-semibold hover:bg-emerald-50/80 transition-all shadow-xs"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-[var(--color-forest-green)] border border-[var(--color-intra)]/30 text-sm font-semibold hover:bg-emerald-50/80 transition-all shadow-xs text-center"
           >
             8 Biological Systems
           </a>

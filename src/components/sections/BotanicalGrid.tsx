@@ -1,51 +1,102 @@
 "use client";
 
 import { useState } from "react";
-import { Leaf } from "lucide-react";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { motion, type Variants, useReducedMotion } from "framer-motion";
 import { botanicalsData, type BotanicalExtract } from "@/data/botanicals";
 import { PlantDetailsModal } from "@/components/ui/PlantDetailsModal";
+import { Sparkles } from "lucide-react";
 
 export function BotanicalGrid() {
   const [selectedPlant, setSelectedPlant] = useState<BotanicalExtract | null>(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.035,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants: Variants = {
+    hidden: { 
+      opacity: 0, 
+      y: shouldReduceMotion ? 0 : 20, 
+      scale: shouldReduceMotion ? 1 : 0.94 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 280,
+        damping: 24,
+      },
+    },
+  };
 
   return (
-    <section id="botanicals" className="py-20 bg-(--color-warm-cream)">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-(--color-forest-green) mb-4">
+    <section id="botanicals" className="py-12 sm:py-16 lg:py-20 bg-(--color-warm-cream)">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        <div className="text-center mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-[var(--color-forest-green)] border border-emerald-300/60 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Time-Tested Herbal Synergy</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-(--color-forest-green) mb-3 sm:mb-4">
             23 Botanical Extracts
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             The product material presents Intra as a blend of botanical ingredients designed around synergistic interaction. 
             The formulation relies on the synergistic effect of these specific extracts working together. Click any botanical extract to view its details.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+        {/* Staggered Cascading Botanical Grid */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2.5 sm:gap-4"
+        >
           {botanicalsData.map((plant) => (
             <motion.button 
               key={plant.id}
               type="button"
+              variants={cardVariants}
               onClick={() => setSelectedPlant(plant)}
-              whileHover={{ y: -3, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              whileHover={shouldReduceMotion ? {} : { y: -6, scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 400, damping: 22 }}
               aria-label={`View botanical details about ${plant.name}`}
-              className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md hover:border-[var(--color-lime-green)] transition-all group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-[var(--color-leaf-green)]/30 focus:border-[var(--color-leaf-green)]"
+              className="bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-sm border border-emerald-900/10 flex flex-col items-center justify-center text-center hover:shadow-xl hover:border-[var(--color-lime-green)] transition-all group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-[var(--color-leaf-green)]/30 focus:border-[var(--color-leaf-green)]"
             >
-              <Leaf className="w-8 h-8 text-gray-300 mb-3 group-hover:text-[var(--color-lime-green)] transition-colors" />
-              <span className="font-medium text-gray-800 text-sm group-hover:text-[var(--color-forest-green)] transition-colors">
+              {/* Plant Photograph Thumbnail */}
+              <div className="relative w-14 h-14 sm:w-20 sm:h-20 rounded-xl overflow-hidden mb-2.5 sm:mb-3 shadow-xs border border-gray-100 bg-gray-50">
+                <Image
+                  src={plant.image}
+                  alt={plant.name}
+                  fill
+                  sizes="(max-width: 640px) 60px, 80px"
+                  className="object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+
+              <span className="font-semibold text-gray-900 text-xs sm:text-base group-hover:text-[var(--color-forest-green)] transition-colors leading-tight">
                 {plant.name}
+              </span>
+              <span className="text-[10px] sm:text-[11px] text-gray-500 italic mt-0.5 line-clamp-1">
+                {plant.scientificName}
               </span>
             </motion.button>
           ))}
-          {/* Fill the last grid spot with a logo or text to make it 24 spots (6x4) */}
-          <div className="bg-(--color-leaf-green) p-4 rounded-xl shadow-sm text-white flex flex-col items-center justify-center text-center select-none">
-            <span className="font-bold text-xl mb-1">23</span>
-            <span className="text-xs uppercase tracking-wider opacity-80">Extracts</span>
-          </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Plant Details Modal */}

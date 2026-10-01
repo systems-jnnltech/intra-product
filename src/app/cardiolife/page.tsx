@@ -45,16 +45,16 @@ export default function CardioLifePage() {
         </div>
       </ProductSection>
 
-      <section className="py-20 bg-red-50">
-        <div className="container mx-auto px-6 max-w-4xl text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+      <section className="py-12 sm:py-20 bg-red-50">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
             Featuring <span className="text-(--color-cardio)">vitaMK7®</span>
           </h2>
-          <p className="text-xl text-gray-700 leading-relaxed mb-6">
+          <p className="text-base sm:text-xl text-gray-700 leading-relaxed mb-4 sm:mb-6">
             CardioLife contains a unique and well studied brand of Vitamin K2 called VitaMK7. 
             Known as the highest quality, most active form of Vitamin K2, VitaMK7 is pure Menaquinone-7 (MK7).
           </p>
-          <p className="text-xl text-gray-700 leading-relaxed font-medium bg-white p-8 rounded-2xl shadow-sm border border-red-100">
+          <p className="text-base sm:text-xl text-gray-700 leading-relaxed font-medium bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-red-100">
             Menaquinone-7 (MK7) has been well studied and shown to enhance blood flow and strengthen bones by removing calcium from the blood and depositing it in the bones, where it belongs.
           </p>
         </div>

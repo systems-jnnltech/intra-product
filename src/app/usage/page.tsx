@@ -1,135 +1,213 @@
-import { UsageCard } from "@/components/ui/UsageCard";
-import { Info, Clock, AlertTriangle } from "lucide-react";
-import Image from "next/image";
+import { EnhancedUsageCard } from "@/components/usage/EnhancedUsageCard";
+import { DailyScheduleTimeline } from "@/components/usage/DailyScheduleTimeline";
+import { ComplementarySynergySection } from "@/components/usage/ComplementarySynergySection";
+import { UsageFAQSection } from "@/components/usage/UsageFAQSection";
+import { AlertTriangle, Sparkles, BookOpen } from "lucide-react";
 
 export const metadata = {
-  title: "How to Use | Lifestyles",
-  description: "Product usage instructions for Intra, NutriaPlus, CardioLife, and FibreLife.",
+  title: "How to Use | Lifestyles Health Supplement Guidelines",
+  description: "Comprehensive product usage instructions, daily schedules, and synergy guidelines for Intra, NutriaPlus, CardioLife, and FibreLife.",
 };
+
+const productsUsageData = [
+  {
+    id: "intra",
+    title: "INTRA®",
+    subtitle: "23 Botanicals • 8 Systems",
+    tagline: "Drink Intra. Share Intra. Every Day.",
+    imageSrc: "/products/intra/intra.png",
+    colorClass: "text-[var(--color-intra)]",
+    bgGradient: "bg-gradient-to-br from-emerald-100/90 via-emerald-50/50 to-green-100/40",
+    borderColor: "border-emerald-200/90",
+    badgeBg: "bg-emerald-100 text-emerald-900 border border-emerald-300/60",
+    auraColor: "bg-emerald-400/25",
+    productHref: "/intra",
+    dosage: "1 to 2 fl. oz (28–56 ml) or 2 to 4 capsules daily",
+    timing: "Morning / Anytime with food or empty stomach",
+    instructions: [
+      {
+        label: "Daily System Maintenance",
+        text: "Take 1 fl. oz (28 ml) once daily to nourish and balance your 8 biological systems.",
+      },
+      {
+        label: "Targeted Fortification",
+        text: "Take 1 fl. oz twice daily (morning and afternoon) during periods of stress, fatigue, or recovery.",
+      },
+      {
+        label: "Flexible Ingestion",
+        text: "Can be taken first thing in the morning on an empty stomach or with a light breakfast.",
+      },
+    ],
+    proTips: [
+      "Shake the bottle vigorously before every pour to disperse natural botanical extracts.",
+      "Store in the refrigerator after opening to keep cold-extracted botanicals crisp and active.",
+      "Pleasant herbal-fruit taste; can be mixed into fresh fruit juice, smoothies, or cold water.",
+    ],
+  },
+  {
+    id: "nutriaplus",
+    title: "NUTRIAPLUS™",
+    subtitle: "Cellular Antioxidant Shield",
+    tagline: "Quench Free Radicals. Defend Every Cell.",
+    imageSrc: "/products/nutriaplus/nutriaplus.png",
+    colorClass: "text-[var(--color-nutria)]",
+    bgGradient: "bg-gradient-to-br from-teal-100/90 via-teal-50/50 to-cyan-100/40",
+    borderColor: "border-teal-200/90",
+    badgeBg: "bg-teal-100 text-teal-900 border border-teal-300/60",
+    auraColor: "bg-teal-400/25",
+    productHref: "/nutriaplus",
+    dosage: "2 capsules daily",
+    timing: "Morning or Mid-Day with Food",
+    instructions: [
+      {
+        label: "Standard Serving",
+        text: "Take 2 capsules daily, ideally alongside your breakfast or lunch for optimal bioavailability.",
+      },
+      {
+        label: "Bio-Synergy with Intra",
+        text: "Formulated specifically to be taken at the same time as Intra to multiply cellular defense.",
+      },
+      {
+        label: "Antioxidant Defense",
+        text: "Features bio-available selenium, Vitamin C, and fruit-vegetable concentrates to neutralize free radicals.",
+      },
+    ],
+    proTips: [
+      "Taking NutriaPlus with a meal containing healthy fats enhances absorption of plant phytonutrients.",
+      "Always close cap tightly and store in a cool, dry area away from direct sunlight.",
+    ],
+  },
+  {
+    id: "cardiolife",
+    title: "CARDIOLIFE®",
+    subtitle: "Cardiovascular & Arterial Tone",
+    tagline: "Nourish Your Heart & Micro-Circulation",
+    imageSrc: "/products/cardiolife/cardiolife.png",
+    colorClass: "text-[var(--color-cardio)]",
+    bgGradient: "bg-gradient-to-br from-rose-100/90 via-rose-50/50 to-red-100/40",
+    borderColor: "border-rose-200/90",
+    badgeBg: "bg-rose-100 text-rose-900 border border-rose-300/60",
+    auraColor: "bg-rose-400/25",
+    productHref: "/cardiolife",
+    dosage: "1 to 2 capsules daily",
+    timing: "Any time of the day with food",
+    instructions: [
+      {
+        label: "Cardiovascular Maintenance",
+        text: "Take 1 to 2 capsules daily with meals to support arterial flexibility and clean blood flow.",
+      },
+      {
+        label: "Vascular Vitality",
+        text: "Supplies standardized Hawthorn extract, magnesium, and essential B-vitamins for micro-circulation.",
+      },
+    ],
+    proTips: [
+      "Best taken in the morning or early afternoon with a meal for all-day stamina.",
+      "Complements Intra's cardiovascular balancing effects seamlessly.",
+    ],
+  },
+  {
+    id: "fibrelife",
+    title: "FIBRELIFE®",
+    subtitle: "High-Viscosity Soluble Fibre",
+    tagline: "Glycemic Stability & Gentle Digestive Motility",
+    imageSrc: "/products/fibrelife/fibrelife.png",
+    colorClass: "text-[var(--color-fibre)]",
+    bgGradient: "bg-gradient-to-br from-amber-100/90 via-orange-50/50 to-yellow-100/40",
+    borderColor: "border-orange-200/90",
+    badgeBg: "bg-orange-100 text-orange-900 border border-orange-300/60",
+    auraColor: "bg-amber-400/25",
+    productHref: "/fibrelife",
+    dosage: "1 to 2 capsules (2–3 times daily)",
+    timing: "15–30 Mins Before or at Start of Meals",
+    waterNote: "Drink a full 250 ml (one large glass) of water with each capsule.",
+    warningNote: "IMPORTANT: Take Intra and NutriaPlus at least 1 hour before taking FibreLife.",
+    instructions: [
+      {
+        label: "Blood Sugar & Cholesterol",
+        text: "Take 1 to 2 capsules at the start of each meal with 250 ml of water to buffer carb absorption.",
+      },
+      {
+        label: "Weight Management & Satiety",
+        text: "Take 1 to 2 capsules between meals 2 to 3 times daily with a full glass of water to promote fullness.",
+      },
+      {
+        label: "1-Hour Separation Rule",
+        text: "Allow at least 60 minutes between taking FibreLife and other supplements to ensure unhindered absorption.",
+      },
+    ],
+    proTips: [
+      "Never swallow FibreLife capsules dry; water is required for the soluble fibre to expand properly.",
+      "Stay hydrated throughout the day to support optimal gastrointestinal transit.",
+    ],
+  },
+];
 
 export default function UsagePage() {
   return (
-    <div className="bg-transparent min-h-screen py-20">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-(--color-forest-green) mb-4">How to Use</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Recommended usage guidelines for the Lifestyles product collection.
-          </p>
-        </div>
-
-        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg shadow-sm mb-12 flex items-start max-w-4xl mx-auto">
-          <AlertTriangle className="text-yellow-500 w-6 h-6 mr-4 flex-shrink-0 mt-1" />
-          <p className="text-gray-800 font-medium">
-            Please follow the product instructions and consult a qualified healthcare professional if you have questions about supplement use.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
-          <UsageCard 
-            title="INTRA"
-            colorClass="text-(--color-intra)"
-            bgColorClass="bg-green-50"
-            icon={<Clock className="w-6 h-6" />}
-            instructions={[
-              { label: "When", text: "Any time of the day with food or empty stomach" },
-              { label: "Amount", text: "1 to 2 fl. oz. (28 to 56 ml) OR 2 to 4 capsules daily" }
-            ]}
-          />
-          <UsageCard 
-            title="NUTRIAPLUS"
-            colorClass="text-(--color-nutria)"
-            bgColorClass="bg-teal-50"
-            icon={<Clock className="w-6 h-6" />}
-            instructions={[
-              { label: "When", text: "Any time of the day with food" },
-              { label: "Amount", text: "2 capsules daily" }
-            ]}
-          />
-          <UsageCard 
-            title="CARDIOLIFE"
-            colorClass="text-(--color-cardio)"
-            bgColorClass="bg-red-50"
-            icon={<Clock className="w-6 h-6" />}
-            instructions={[
-              { label: "When", text: "Any time of the day with food" },
-              { label: "Amount", text: "2 capsules daily" }
-            ]}
-          />
-          <UsageCard 
-            title="FIBRELIFE"
-            colorClass="text-(--color-fibre)"
-            bgColorClass="bg-orange-50"
-            icon={<Info className="w-6 h-6" />}
-            instructions={[
-              { label: "Blood Sugar and Cholesterol Control", text: "1 to 2 capsules at the start of each meal" },
-              { label: "Weight Loss", text: "1 to 2 capsules between meals 2 to 3 times daily" },
-              { label: "Important Note", text: "Drink 250 ml of water with each capsule." },
-              { label: "Combining Products", text: "Take Intra and NutriaPlus one hour before taking FibreLife." }
-            ]}
-          />
-        </div>
-
-        {/* Product Combination Diagram */}
-        <div className="max-w-4xl mx-auto bg-white p-8 md:p-16 rounded-3xl shadow-xl border border-gray-100 text-center">
-          <h2 className="text-3xl font-bold text-(--color-forest-green) mb-6">Complementary Wellness Routine</h2>
-          <p className="text-gray-600 mb-12 max-w-2xl mx-auto">
-            The supplied product material presents the products as part of a complementary wellness routine. 
-            When taken together, they are designed to support overall health and vitality.
-          </p>
-
-          <div className="flex flex-col items-center justify-center space-y-4 md:space-y-0 md:flex-row md:space-x-4">
-            <div className="flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full border-4 border-(--color-intra) flex items-center justify-center p-4 bg-green-50 shadow-md">
-                <Image src="/products/intra/intra.png" alt="Intra" width={60} height={100} className="object-contain" />
-              </div>
-              <span className="font-bold text-(--color-intra) mt-3">INTRA</span>
-            </div>
-
-            <div className="text-gray-300 transform rotate-90 md:rotate-0">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full border-4 border-(--color-nutria) flex items-center justify-center p-4 bg-teal-50 shadow-md">
-                <Image src="/products/nutriaplus/nutriaplus.png" alt="NutriaPlus" width={60} height={100} className="object-contain" />
-              </div>
-              <span className="font-bold text-(--color-nutria) mt-3">NUTRIAPLUS</span>
-            </div>
-
-            <div className="text-gray-300 transform rotate-90 md:rotate-0">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full border-4 border-(--color-cardio) flex items-center justify-center p-4 bg-red-50 shadow-md">
-                <Image src="/products/cardiolife/cardiolife.png" alt="CardioLife" width={60} height={100} className="object-contain" />
-              </div>
-              <span className="font-bold text-(--color-cardio) mt-3">CARDIOLIFE</span>
-            </div>
-            
-            <div className="text-gray-300 transform rotate-90 md:rotate-0">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full border-4 border-(--color-fibre) flex items-center justify-center p-4 bg-orange-50 shadow-md">
-                <Image src="/products/fibrelife/fibrelife.png" alt="FibreLife" width={60} height={100} className="object-contain" />
-              </div>
-              <span className="font-bold text-(--color-fibre) mt-3">FIBRELIFE</span>
-            </div>
+    <div className="bg-transparent min-h-screen py-10 sm:py-16 lg:py-20">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        
+        {/* Page Header */}
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-emerald-100/80 text-[var(--color-forest-green)] border border-emerald-300/60 text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-xs mb-3 sm:mb-4">
+            <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Official Supplement Directions</span>
           </div>
-          
-          <div className="mt-8 text-sm text-gray-500 italic">
-            *Take Intra and NutriaPlus one hour before taking FibreLife.
+
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[var(--color-forest-green)] tracking-tight mb-4">
+            How to Use
+          </h1>
+          <p className="text-base sm:text-xl text-gray-600 leading-relaxed font-light">
+            Recommended dosage guidelines, timing principles, and synergy routines for the complete <span className="font-semibold text-[var(--color-leaf-green)]">Lifestyles Wellness Collection</span>.
+          </p>
+        </div>
+
+        {/* Safety & Compliance Advisory Banner */}
+        <div className="bg-white/95 backdrop-blur-md border border-amber-200/80 rounded-2xl p-4 sm:p-5 shadow-xs mb-10 sm:mb-14 flex items-start gap-3.5 max-w-4xl mx-auto">
+          <div className="p-2 rounded-xl bg-amber-100 text-amber-700 shrink-0 mt-0.5">
+            <AlertTriangle className="w-5 h-5" />
+          </div>
+          <div>
+            <h4 className="text-xs sm:text-sm font-bold text-gray-900 mb-0.5">
+              General Usage & Safety Note
+            </h4>
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+              Supplements should be taken consistently as part of a balanced diet and active lifestyle. If you are pregnant, nursing, taking prescription medications, or under medical supervision, please consult a qualified healthcare professional before use.
+            </p>
           </div>
         </div>
+
+        {/* Section 1: 4 Rich Product Dosage Cards */}
+        <div className="mb-14 sm:mb-20">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[var(--color-leaf-green)]">
+                <Sparkles className="w-3.5 h-3.5" />
+                Individual Directions
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
+                Product-by-Product Guidelines
+              </h2>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            {productsUsageData.map((prod, idx) => (
+              <EnhancedUsageCard key={prod.id} {...prod} index={idx} />
+            ))}
+          </div>
+        </div>
+
+        {/* Section 2: Interactive 24-Hour Schedule Timeline */}
+        <DailyScheduleTimeline />
+
+        {/* Section 3: Enhanced "Complementary Wellness Routine" & Synergy */}
+        <ComplementarySynergySection />
+
+        {/* Section 4: Usage FAQ & Personalized Distributor Regimen Consultation */}
+        <UsageFAQSection />
+
       </div>
     </div>
   );

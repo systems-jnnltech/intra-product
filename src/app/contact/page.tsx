@@ -8,20 +8,20 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="bg-transparent min-h-screen py-20">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-(--color-forest-green) mb-4">Want to Learn More?</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+    <div className="bg-transparent min-h-screen py-12 sm:py-20">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        <div className="text-center mb-10 sm:mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-(--color-forest-green) mb-3 sm:mb-4">Want to Learn More?</h1>
+          <p className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Get in touch with us to learn more about our products or find a distributor near you.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-12 items-start max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
           
           {/* Contact Information */}
-          <div className="lg:col-span-1 space-y-8 bg-white p-8 rounded-3xl shadow-sm border border-gray-100 h-full">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 border-b pb-4">Contact Information</h2>
+          <div className="lg:col-span-1 space-y-6 sm:space-y-8 bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm border border-gray-100 h-full">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6 border-b pb-3 sm:pb-4">Contact Information</h2>
             
             <div className="space-y-6">
               <div className="flex items-start">

@@ -1,7 +1,7 @@
 export function FooterDisclaimer() {
   return (
     <div className="bg-(--color-charcoal) text-gray-400 py-6 text-xs border-t border-gray-700">
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <p className="mb-2 text-center font-semibold text-gray-300">
           IMPORTANT DISCLAIMER: NO APPROVED THERAPEUTIC CLAIMS
         </p>

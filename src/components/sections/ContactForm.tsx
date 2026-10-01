@@ -19,7 +19,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 relative overflow-hidden">
+    <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 shadow-xl border border-gray-100 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-2 bg-(--color-leaf-green)"></div>
       
       {submitted ? (

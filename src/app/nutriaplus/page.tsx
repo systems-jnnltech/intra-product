@@ -42,16 +42,16 @@ export default function NutriaPlusPage() {
         </div>
       </ProductSection>
 
-      <section className="py-20 bg-teal-50">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="py-12 sm:py-20 bg-teal-50">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <div className="flex items-center mb-6">
-                <FlaskConical className="w-10 h-10 text-(--color-nutria) mr-4" />
-                <h2 className="text-3xl font-bold text-(--color-nutria)">The Research Process</h2>
+              <div className="flex items-center mb-4 sm:mb-6">
+                <FlaskConical className="w-8 h-8 sm:w-10 sm:h-10 text-(--color-nutria) mr-3 sm:mr-4 shrink-0" />
+                <h2 className="text-2xl sm:text-3xl font-bold text-(--color-nutria)">The Research Process</h2>
               </div>
-              <h3 className="text-xl font-semibold mb-6 text-gray-800">How NutriaPlus was developed:</h3>
-              <ul className="space-y-4 text-gray-700 leading-relaxed">
+              <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-gray-800">How NutriaPlus was developed:</h3>
+              <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed">
                 <li className="flex items-start">
                   <span className="w-2 h-2 rounded-full bg-(--color-nutria) mt-2 mr-3 flex-shrink-0"></span>
                   <span>NutriaPlus was developed in conjunction with the zebrafish research laboratory at Acenzia Inc.</span>
@@ -75,15 +75,15 @@ export default function NutriaPlusPage() {
               </ul>
             </div>
             
-            <div className="bg-white p-10 rounded-3xl shadow-lg border border-teal-100 text-center">
-              <h3 className="text-2xl font-bold text-gray-800 mb-2">Better Together PLUS...</h3>
-              <p className="text-4xl md:text-5xl font-extrabold text-(--color-nutria) my-6">
+            <div className="bg-white p-6 sm:p-10 rounded-2xl sm:rounded-3xl shadow-lg border border-teal-100 text-center">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">Better Together PLUS...</h3>
+              <p className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-(--color-nutria) my-4 sm:my-6">
                 70% MORE
               </p>
-              <p className="text-xl font-semibold text-gray-700 mb-4">
+              <p className="text-lg sm:text-xl font-semibold text-gray-700 mb-3 sm:mb-4">
                 antioxidant power when combined with Intra!*
               </p>
-              <p className="text-sm text-gray-500 italic">
+              <p className="text-xs sm:text-sm text-gray-500 italic">
                 (*compared to original Nutria formula plus Intra)
               </p>
             </div>

@@ -26,24 +26,25 @@
 
 body {
   background-color: var(--color-warm-cream);
-  background-image: url('/products/website-bg.png');
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% auto;
   color: var(--foreground);
   font-family: var(--font-sans);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-@media (max-width: 1024px) {
+/* Display the wide botanical background banner only on desktop screens */
+@media (min-width: 1025px) {
   body {
-    background-size: cover;
-    background-position: center top;
+    background-image: url('/products/website-bg.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% auto;
   }
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .website-bg-frame {
@@ -52,4 +53,3 @@ html {
   background-position: top center;
   background-size: 100% auto;
 }
-

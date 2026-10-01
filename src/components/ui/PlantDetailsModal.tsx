@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Leaf, CheckCircle2, BookOpen, AlertCircle } from "lucide-react";
 import type { BotanicalExtract } from "@/data/botanicals";
@@ -74,13 +75,13 @@ export function PlantDetailsModal({ plant, onClose }: PlantDetailsModalProps) {
             <div className="md:w-5/12 bg-gradient-to-br from-emerald-50/60 via-green-50/30 to-amber-50/30 relative flex flex-col shrink-0">
               <div className="relative h-64 md:h-full min-h-[260px] md:min-h-[440px] w-full overflow-hidden flex items-center justify-center">
                 {!imageError ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
+                  <Image
                     src={plant.image}
                     alt={`${plant.name} botanical specimen`}
-                    loading="lazy"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
                     onError={() => setImageErrorPlantId(plant.id)}
-                    className="w-full h-full object-cover object-center"
+                    className="object-cover object-center"
                   />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center bg-gradient-to-b from-emerald-100/50 to-green-50">

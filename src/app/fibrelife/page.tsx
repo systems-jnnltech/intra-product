@@ -27,10 +27,10 @@ export default function FibreLifePage() {
           </div>
         }
       >
-        <div className="pt-2">
+        <div className="pt-2 w-full sm:w-auto">
           <a
             href="#abc-formula"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--color-fibre)] text-white text-sm font-semibold hover:bg-orange-600 transition-all shadow-md hover:shadow-lg"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[var(--color-fibre)] text-white text-sm font-semibold hover:bg-orange-600 transition-all shadow-md hover:shadow-lg text-center"
           >
             <span>Explore A-B-C Formula</span>
             <span className="text-xs font-bold">↓</span>
@@ -38,9 +38,9 @@ export default function FibreLifePage() {
         </div>
       </ProductSection>
 
-      <section id="abc-formula" className="py-20 bg-orange-50">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="grid md:grid-cols-3 gap-8">
+      <section id="abc-formula" className="py-12 sm:py-20 bg-orange-50">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
             
             <div className="h-full">
               <ProductBenefits 

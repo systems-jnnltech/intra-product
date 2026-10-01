@@ -16,7 +16,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Goji",
     scientificName: "Lycium barbarum",
     family: "Solanaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Lycium_barbarum_fruits.jpg/800px-Lycium_barbarum_fruits.jpg",
+    image: "/23BotanicalExtracts/goji.jpg",
     description: "Goji is a deciduous shrub traditionally cultivated across temperate Asian valleys, celebrated for its nutrient-dense red berries often referred to as wolfberries.",
     benefits: [
       "Supplies carotenoid antioxidants, particularly zeaxanthin",
@@ -36,7 +36,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Mangosteen",
     scientificName: "Garcinia mangostana",
     family: "Clusiaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Garcinia_mangostana_fruit.jpg/800px-Garcinia_mangostana_fruit.jpg",
+    image: "/23BotanicalExtracts/Mangosteen.jpg",
     description: "Known throughout tropical Southeast Asia as the 'Queen of Fruits', the mangosteen is prized both for its sweet, delicate arils and the concentrated phytonutrients housed within its thick purple pericarp.",
     benefits: [
       "Naturally abundant in xanthones, a unique class of polyphenolic antioxidants",
@@ -56,7 +56,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Noni",
     scientificName: "Morinda citrifolia",
     family: "Rubiaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Morinda_citrifolia_fruit.jpg/800px-Morinda_citrifolia_fruit.jpg",
+    image: "/23BotanicalExtracts/Noni.jpg",
     description: "Noni is an evergreen shrub or small tree indigenous to the Pacific Islands, Australia, and Southeast Asia. Its resilient fruit has been a revered pillar of traditional Polynesian wellness systems for over two millennia.",
     benefits: [
       "Contains naturally occurring scopoletin, damnacanthal, and bioflavonoids",
@@ -76,7 +76,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Acai",
     scientificName: "Euterpe oleracea",
     family: "Arecaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Euterpe_oleracea_fruits.jpg/800px-Euterpe_oleracea_fruits.jpg",
+    image: "/23BotanicalExtracts/Acai.jpg",
     description: "Harvested from the tops of slender palm trees growing in the fertile floodplains of the Amazon basin, the deep purple acai berry is celebrated globally as an antioxidant-dense botanical food.",
     benefits: [
       "Exceptional concentrations of dark anthocyanin polyphenols",
@@ -96,7 +96,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Echinacea",
     scientificName: "Echinacea purpurea",
     family: "Asteraceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Echinacea_purpurea_001.jpg/800px-Echinacea_purpurea_001.jpg",
+    image: "/23BotanicalExtracts/Echinacea.jpg",
     description: "Also known as the purple coneflower, Echinacea is an herbaceous perennial native to North American grasslands, recognized by its prominent spiny central cone and vibrant petals.",
     benefits: [
       "Rich in bioactive alkylamides, caffeic acid derivatives, and polysaccharides",
@@ -116,7 +116,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Aloe vera",
     scientificName: "Aloe barbadensis miller",
     family: "Asphodelaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Aloe_vera_flower_inset.png/800px-Aloe_vera_flower_inset.png",
+    image: "/23BotanicalExtracts/Aloe vera.jpg",
     description: "A perennial succulent originating in arid subtropical climates, Aloe vera produces fleshy, lanceolate leaves containing a transparent gel packed with polysaccharides and natural micronutrients.",
     benefits: [
       "Rich in acemannan and other mucilaginous polysaccharides",
@@ -136,7 +136,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Siberian ginseng",
     scientificName: "Eleutherococcus senticosus",
     family: "Araliaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Eleutherococcus_senticosus_berries.jpg/800px-Eleutherococcus_senticosus_berries.jpg",
+    image: "/23BotanicalExtracts/Siberian ginseng.jpg",
     description: "Also widely termed Eleuthero, Siberian ginseng is a hardy thorny shrub native to the taiga forests of northeastern Asia, classified in herbalism as a classic foundational botanical adaptogen.",
     benefits: [
       "Supplies unique eleutherosides (B and E) that support stress adaptation",
@@ -156,7 +156,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Licorice root",
     scientificName: "Glycyrrhiza glabra",
     family: "Fabaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Glycyrrhiza_glabra_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-069.jpg/800px-Glycyrrhiza_glabra_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-069.jpg",
+    image: "/23BotanicalExtracts/Licorice root.jpg",
     description: "A perennial legume native to southern Europe and parts of Asia, Licorice is famous for its sweet-tasting root, containing glycyrrhizin—a natural compound roughly 50 times sweeter than sucrose.",
     benefits: [
       "Provides natural demulcent properties that soothe the digestive lining",
@@ -176,7 +176,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Chinese pearl barley",
     scientificName: "Coix lacryma-jobi",
     family: "Poaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Coix_lacryma-jobi_seeds.jpg/800px-Coix_lacryma-jobi_seeds.jpg",
+    image: "/23BotanicalExtracts/Chinese pearl barley.jpg",
     description: "Commonly known as Job's tears or Coix seed, Chinese pearl barley is a tall, grain-bearing tropical plant cultivated throughout East Asia, valued both as a restorative food and an herbal staple.",
     benefits: [
       "Contains coixenolide, essential amino acids, and dietary fibre",
@@ -196,7 +196,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Dandelion",
     scientificName: "Taraxacum officinale",
     family: "Asteraceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Taraxacum_officinale_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-135.jpg/800px-Taraxacum_officinale_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-135.jpg",
+    image: "/23BotanicalExtracts/Dandelion.jpg",
     description: "Recognized by its bright yellow blossom, the dandelion is an exceptionally hardy perennial botanical whose taproot and green leaves have been harvested across temperate continents for centuries.",
     benefits: [
       "Supplies bitter sesquiterpene lactones that stimulate healthy digestion",
@@ -216,7 +216,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "German chamomile",
     scientificName: "Matricaria chamomilla",
     family: "Asteraceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Matricaria_chamomilla_flowers.jpg/800px-Matricaria_chamomilla_flowers.jpg",
+    image: "/23BotanicalExtracts/German chamomile.jpg",
     description: "An aromatic annual plant featuring small, daisy-like blossoms with a hollow conical receptacle, German chamomile is celebrated globally for its gentle floral aroma and relaxing nature.",
     benefits: [
       "Abundant in calming apigenin flavonoids and volatile chamazulene",
@@ -236,7 +236,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Ginger",
     scientificName: "Zingiber officinale",
     family: "Zingiberaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Ginger_rhizome.jpg/800px-Ginger_rhizome.jpg",
+    image: "/23BotanicalExtracts/Ginger.jpg",
     description: "A tropical flowering perennial cultivated in warm climates, ginger is esteemed worldwide for its pungent, aromatic underground rhizome, an irreplaceable staple of both herbalism and gastronomy.",
     benefits: [
       "Concentrated in warming gingerols, shogaols, and zingiberene",
@@ -256,7 +256,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Reishi mushroom",
     scientificName: "Ganoderma lucidum",
     family: "Ganodermataceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Ganoderma_lucidum_01.jpg/800px-Ganoderma_lucidum_01.jpg",
+    image: "/23BotanicalExtracts/Reishi mushroom.jpg",
     description: "Revered in East Asian herbal lore as Lingzhi or the 'Mushroom of Immortality', Reishi is a woody polypore mushroom that grows on decaying deciduous trees, featuring a varnished reddish-brown cap.",
     benefits: [
       "Packed with immune-modulating beta-glucan polysaccharides",
@@ -276,7 +276,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Schisandra berry",
     scientificName: "Schisandra chinensis",
     family: "Schisandraceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Schisandra_chinensis_fruit.jpg/800px-Schisandra_chinensis_fruit.jpg",
+    image: "/23BotanicalExtracts/Schisandra berry.jpg",
     description: "Known in traditional Chinese medicine as Wu Wei Zi ('Five Flavor Berry'), Schisandra is a deciduous woody vine whose scarlet berries uniquely embody sweet, sour, salty, bitter, and pungent taste profiles.",
     benefits: [
       "Supplies specialized dibenzocyclooctadiene lignans (schisandrins)",
@@ -296,7 +296,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Juniper berries",
     scientificName: "Juniperus communis",
     family: "Cupressaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Juniperus_communis_berries.jpg/800px-Juniperus_communis_berries.jpg",
+    image: "/23BotanicalExtracts/Juniper berries.jpg",
     description: "An evergreen coniferous shrub native to cool temperate regions across the Northern Hemisphere, Juniper produces dark bluish-black aromatic female seed cones commonly called berries.",
     benefits: [
       "Contains aromatic essential oils rich in alpha-pinene and terpinen-4-ol",
@@ -316,7 +316,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Sarsaparilla",
     scientificName: "Smilax ornata",
     family: "Smilacaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Smilax_ornata_plant.jpg/800px-Smilax_ornata_plant.jpg",
+    image: "/23BotanicalExtracts/Sarsaparilla.jpeg",
     description: "A perennial climbing vine armed with sharp prickles, native to Central and South America, Sarsaparilla develops lengthy underground fibrous roots prized in traditional folk medicine.",
     benefits: [
       "Abundant in steroidal saponins, including sarsasapogenin and smilagenin",
@@ -336,7 +336,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Capsicum fruit",
     scientificName: "Capsicum annuum",
     family: "Solanaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Cayenne_peppers_cluster.jpg/800px-Cayenne_peppers_cluster.jpg",
+    image: "/23BotanicalExtracts/Capsicum fruit.jpg",
     description: "A species in the nightshade family native to the tropical Americas, Capsicum produces fiery chili peppers rich in capsaicinoid compounds that impart stimulating botanical heat.",
     benefits: [
       "Contains bioactive capsaicin, a natural circulatory and metabolic activator",
@@ -356,7 +356,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Hawthorn",
     scientificName: "Crataegus monogyna",
     family: "Rosaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Crataegus_monogyna_berries.jpg/800px-Crataegus_monogyna_berries.jpg",
+    image: "/23BotanicalExtracts/Hawthorn.jpg",
     description: "A thorny deciduous tree belonging to the rose family, Hawthorn dots European hedgerows with white spring blossoms followed in autumn by clusters of crimson berries (haws).",
     benefits: [
       "Renowned source of oligomeric proanthocyanidins (OPCs), vitexin, and hyperoside",
@@ -376,7 +376,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Astragalus",
     scientificName: "Astragalus membranaceus",
     family: "Fabaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Astragalus_membranaceus_flower.jpg/800px-Astragalus_membranaceus_flower.jpg",
+    image: "/23BotanicalExtracts/Astragalus.jpg",
     description: "A perennial flowering legume native to northern China, Astragalus produces sweet, fibrous yellow roots known as Huang Qi, meaning 'Yellow Leader' in recognition of its venerated status in herbalism.",
     benefits: [
       "Abundant in unique astragalosides, polysaccharides, and isoflavones",
@@ -396,7 +396,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Fenugreek seed",
     scientificName: "Trigonella foenum-graecum",
     family: "Fabaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Trigonella_foenum-graecum_seeds.jpg/800px-Trigonella_foenum-graecum_seeds.jpg",
+    image: "/23BotanicalExtracts/Fenugreek seed.jpg",
     description: "An annual aromatic herb indigenous to the Mediterranean and western Asia, Fenugreek bears pods filled with small, angular golden-brown seeds emitting a pleasant maple aroma.",
     benefits: [
       "Rich in soluble galactomannan fibre, slowing glucose transit in the gut",
@@ -416,7 +416,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Prickly pear",
     scientificName: "Opuntia ficus-indica",
     family: "Cactaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Opuntia_ficus-indica_fruit.jpg/800px-Opuntia_ficus-indica_fruit.jpg",
+    image: "/23BotanicalExtracts/Prickly pear.jpg",
     description: "A resilient cactus native to the arid landscapes of Mexico and the Americas, the Prickly Pear develops fleshy paddle-like cladodes (nopales) crowned with sweet, spinulose magenta fruits (tunas).",
     benefits: [
       "Supplies rare betalain antioxidants (indicaxanthin and betanin)",
@@ -436,7 +436,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Celery seed",
     scientificName: "Apium graveolens",
     family: "Apiaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Apium_graveolens_seeds.jpg/800px-Apium_graveolens_seeds.jpg",
+    image: "/23BotanicalExtracts/Celery seed.jpeg",
     description: "The dried fruit of wild celery (smallage), Celery seed yields tiny, aromatic brown kernels with a potent earthy flavor, long respected as an herbal cleansing agent.",
     benefits: [
       "Contains bioactive phthalides, particularly 3-n-butylphthalide (3nB) and sedanenolide",
@@ -456,7 +456,7 @@ export const botanicalsData: BotanicalExtract[] = [
     name: "Rose hips",
     scientificName: "Rosa canina",
     family: "Rosaceae",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Rose_hips_Rosa_canina.jpg/800px-Rose_hips_Rosa_canina.jpg",
+    image: "/23BotanicalExtracts/Rose hips.jpg",
     description: "The bulbous red accessory fruits that ripen on wild dog rose bushes in late autumn following petal fall, Rose hips are celebrated as one of the richest botanical reservoirs of natural Vitamin C.",
     benefits: [
       "Extraordinary natural concentration of bioavailable Vitamin C and bioflavonoids",

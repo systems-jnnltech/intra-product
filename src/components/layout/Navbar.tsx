@@ -87,6 +87,7 @@ export function Navbar() {
     { name: "Home", href: "/" },
     { name: "How to Use", href: "/usage" },
     { name: "About", href: "/about" },
+    { name: "Distributor", href: "/#distributor" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -100,7 +101,7 @@ export function Navbar() {
           : "bg-white/95 backdrop-blur-md shadow-sm py-4 border-b border-gray-100/90"
       }`}
     >
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <div className="flex items-center justify-between">
           
           {/* Logo */}
@@ -226,7 +227,7 @@ export function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-white/98 backdrop-blur-lg border-b border-gray-200 shadow-xl overflow-hidden"
           >
-            <div className="container mx-auto px-6 py-4 flex flex-col space-y-2">
+            <div className="container mx-auto px-4 sm:px-6 py-4 flex flex-col space-y-2">
               <Link
                 href="/"
                 className={`text-base font-semibold py-2.5 px-3 rounded-xl transition-colors ${
