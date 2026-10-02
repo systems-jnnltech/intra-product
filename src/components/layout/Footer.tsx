@@ -54,7 +54,7 @@ export function Footer() {
       <FooterDisclaimer />
       
       <div className="bg-black py-4 text-center text-xs text-gray-600">
-        <p>&copy; {currentYear} Lifestyles. All Rights Reserved. This is a demonstration website based on provided product materials.</p>
+        <p>&copy; {currentYear} Lifestyles.</p>
       </div>
     </footer>
   );
